@@ -39,7 +39,7 @@ document.addEventListener("click", (e) => {
 function getData() {
     fetch('https://010101110.netlify.com/.netlify/functions/getTumblr')
     .then(function(res) {
-        console.log(res)
+        console.log(res.data)
     })
 }
 

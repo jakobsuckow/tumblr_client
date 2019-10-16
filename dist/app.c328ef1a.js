@@ -142,7 +142,7 @@ document.addEventListener("click", function (e) {
 
 function getData() {
   fetch('https://010101110.netlify.com/.netlify/functions/getTumblr').then(function (res) {
-    console.log(res);
+    console.log(res.data);
   });
 }
 
@@ -175,7 +175,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51150" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51192" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

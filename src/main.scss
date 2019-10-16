@@ -3,6 +3,11 @@
     padding: 0;
 }
 
+body {
+    overflow: hidden;
+    background: #fc0f03;
+}
+
 p {
     color: #ccc;
 }
@@ -10,7 +15,7 @@ p {
 canvas {
     width: 100%;
     height: auto;
-    
+
 }
 
 img {
