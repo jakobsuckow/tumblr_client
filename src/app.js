@@ -1,4 +1,5 @@
-const endPoint = `https://010101110.netlify.com/.netlify/functions/getTumblr`
+
+
 
 
 
@@ -37,3 +38,13 @@ document.addEventListener("click", (e) => {
     e.preventDefault()
     placeImage(e.pageX,e.pageY)
 })
+
+
+const getImageData = async() => {
+    const endPoint = `https://010101110.netlify.com/.netlify/functions/getTumblr`
+    const response = await fetch(endPoint)
+    const data = await response.json()
+    console.log(data)
+}
+
+getImageData()

@@ -17,7 +17,7 @@ exports.handler = function (event, context, callback) {
     // Perform API Call
     const getTumblr = () => {
         axios.get(baseUrl)
-        .then(res => send(res.data.response))
+        .then(res => send(res.data.response.posts))
         .catch(err => send(err))
     }
 
@@ -26,3 +26,4 @@ exports.handler = function (event, context, callback) {
         getTumblr()
     }
 }
+
