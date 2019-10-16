@@ -118,10 +118,6 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"app.js":[function(require,module,exports) {
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
 var images = ["https://66.media.tumblr.com/51042487e5e284b582043b30727b975e/tumblr_pyz4nv1O331qfzymao1_1280.jpg", "https://66.media.tumblr.com/d693df0a49f8581c81da5043e3c6ec4c/tumblr_oblwotbO3D1qe0nlvo1_1280.jpg", "https://66.media.tumblr.com/005e610ae9006e1d3dc11d9d25942384/tumblr_oygajkbev31tt2o04o1_400.jpg", "https://66.media.tumblr.com/5570a8f9b3e7c04724fbd42a9836319c/tumblr_obtxozYfZC1uy7gmyo1_1280.jpg", "https://66.media.tumblr.com/c5208aea0d10d3f3d9fbbbd80fbdf80b/tumblr_obtxozYfZC1uy7gmyo2_1280.jpg", "https://66.media.tumblr.com/e5ff415aae981ad180f0a4a8df9720e8/tumblr_p65xc9DlqR1vnm7bio1_1280.jpg"];
 var i = 0;
 
@@ -144,44 +140,13 @@ document.addEventListener("click", function (e) {
   placeImage(e.pageX, e.pageY);
 });
 
-var getImageData =
-/*#__PURE__*/
-function () {
-  var _ref = _asyncToGenerator(
-  /*#__PURE__*/
-  regeneratorRuntime.mark(function _callee() {
-    var endPoint, response, data;
-    return regeneratorRuntime.wrap(function _callee$(_context) {
-      while (1) {
-        switch (_context.prev = _context.next) {
-          case 0:
-            endPoint = "https://010101110.netlify.com/.netlify/functions/getTumblr";
-            _context.next = 3;
-            return fetch(endPoint);
+function getData() {
+  fetch('https://010101110.netlify.com/.netlify/functions/getTumblr').then(function (res) {
+    console.log(res);
+  });
+}
 
-          case 3:
-            response = _context.sent;
-            _context.next = 6;
-            return response.json();
-
-          case 6:
-            data = _context.sent;
-            console.log(data);
-
-          case 8:
-          case "end":
-            return _context.stop();
-        }
-      }
-    }, _callee);
-  }));
-
-  return function getImageData() {
-    return _ref.apply(this, arguments);
-  };
-}();
-
-getImageData();
+getData();
 },{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -210,7 +175,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50968" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51150" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

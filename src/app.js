@@ -1,8 +1,4 @@
 
-
-
-
-
 let images = [
     "https://66.media.tumblr.com/51042487e5e284b582043b30727b975e/tumblr_pyz4nv1O331qfzymao1_1280.jpg",
     "https://66.media.tumblr.com/d693df0a49f8581c81da5043e3c6ec4c/tumblr_oblwotbO3D1qe0nlvo1_1280.jpg",
@@ -40,11 +36,12 @@ document.addEventListener("click", (e) => {
 })
 
 
-const getImageData = async() => {
-    const endPoint = `https://010101110.netlify.com/.netlify/functions/getTumblr`
-    const response = await fetch(endPoint)
-    const data = await response.json()
-    console.log(data)
+function getData() {
+    fetch('https://010101110.netlify.com/.netlify/functions/getTumblr')
+    .then(function(res) {
+        console.log(res)
+    })
 }
 
-getImageData()
+getData()
+
