@@ -141,11 +141,10 @@ document.addEventListener("click", function (e) {
 });
 
 function getData() {
-  fetch('https://010101110.netlify.com/.netlify/functions/getTumblr').then(function (res) {
+  fetch('data.json').then(function (res) {
     return res.json();
-  });
-  then(function (data) {
-    console.log(data);
+  }).then(function (data) {
+    return console.log(data.trail);
   });
 }
 
@@ -178,7 +177,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51192" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52689" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

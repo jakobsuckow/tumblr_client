@@ -18,6 +18,21 @@ let images = [
 
 ]
 
+function getData() {
+    fetch('https://010101110.netlify.com/.netlify/functions/getTumblr')
+    .then((res) => res.json())
+    .then((data) => {
+        data.forEach((d) => {
+            const image = d.photos[0].original_size.url
+            return image
+        })
+        images.push(image)
+    })
+    return images
+}
+
+getData()
+
 
 let i = 0; 
 
@@ -45,15 +60,5 @@ document.addEventListener("click", (e) => {
 })
 
 
-function getData() {
-    fetch('https://010101110.netlify.com/.netlify/functions/getTumblr')
-    .then(function(res) {
-        return res.json()
-    })
-    then(function(data) {
-        console.log(data)
-    })
-}
 
-getData()
 
