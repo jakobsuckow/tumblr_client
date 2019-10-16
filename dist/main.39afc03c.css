@@ -7,4 +7,14 @@ p {
   color: #ccc;
 }
 
+canvas {
+  width: 100%;
+  height: auto;
+}
+
+img {
+  position: absolute;
+  transform: translate(-50%, -50%) scale(0.5);
+}
+
 /*# sourceMappingURL=/main.39afc03c.css.map */
