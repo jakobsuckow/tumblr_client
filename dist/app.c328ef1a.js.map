@@ -1,0 +1,1 @@
+{"version":3,"sources":["app.js"],"names":["endPoint","console","log"],"mappings":"AAAA,IAAMA,QAAQ,+DAAd;AAEAC,OAAO,CAACC,GAAR,CAAYF,QAAZ","file":"app.c328ef1a.js","sourceRoot":"../src","sourcesContent":["const endPoint = `https://010101110.netlify.com/.netlify/functions/getTumblr`\n\nconsole.log(endPoint)"]}

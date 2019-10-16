@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack",
+    "dev": "parcel src/index.html",
+    "prod": "parcel build src/index.html",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lambda-serve": "netlify-lambda serve functions"
   },
@@ -17,7 +18,7 @@
     "netlify-lambda": "^1.6.3"
   },
   "devDependencies": {
-    "webpack": "^4.41.2",
-    "webpack-cli": "^3.3.9"
+    "parcel-bundler": "^1.12.4",
+    "sass": "^1.23.0"
   }
 }
