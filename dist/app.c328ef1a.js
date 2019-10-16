@@ -142,7 +142,10 @@ document.addEventListener("click", function (e) {
 
 function getData() {
   fetch('https://010101110.netlify.com/.netlify/functions/getTumblr').then(function (res) {
-    console.log(res.data);
+    res.json();
+  });
+  then(function (data) {
+    console.log(data);
   });
 }
 
