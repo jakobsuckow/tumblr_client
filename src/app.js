@@ -1,3 +1,4 @@
+const url = 'https://api.tumblr.com/v2/blog/jakobsuckow.tumblr.com/posts?api_key=1JQBQQ6JXQ4RELfjxdtg0xcZ6ZQh0hdXXejkaZHYX77YezMcM4'
 
 let images = [
     "https://66.media.tumblr.com/51042487e5e284b582043b30727b975e/tumblr_pyz4nv1O331qfzymao1_1280.jpg",
@@ -14,29 +15,28 @@ let images = [
     "https://66.media.tumblr.com/aefcf493c3a28d7be73e118b5be4f107/tumblr_nd9288O0zM1qm2kg4o1_1280.jpg",
     "https://66.media.tumblr.com/6ee367982feab867cf04e2a236c3b816/tumblr_pmi0grdS0L1v9fn1io1_400.gif",
     "https://66.media.tumblr.com/23b612d848c8584076401cf23312ddb6/tumblr_p08pf5tppc1tv6b9no1_1280.jpg"
-
-
 ]
-
-function getData() {
-    fetch('https://010101110.netlify.com/.netlify/functions/getTumblr')
-    .then((res) => res.json())
-    .then((data) => {
-        data.forEach((d) => {
-            const image = d.photos[0].original_size.url
-            return image
+fetch(url).then(response => {
+    if (response.ok) {
+        return response.json()
+    }
+    throw new Error('Network Error')
+})
+    .then(data => {
+        // console.log(`inside: ${JSON.stringify(data, null, 2)}`)
+        data.map(entry => {
+            console.log(entry)
         })
-        images.push(image)
     })
-    return images
-}
+    .catch(error => {
+        console.log(`There has been an error: ${error.message}`)
+    })
+console.log(`Outisde: ${JSON.stringify(images)}`)
 
-getData()
 
+let i = 0;
 
-let i = 0; 
-
-const placeImage = (x,y) => {
+const placeImage = (x, y) => {
 
     const nextImage = images[i]
 
@@ -49,14 +49,14 @@ const placeImage = (x,y) => {
 
     i = i + 1
 
-    if(i >= images.length) {
-        i=0
+    if (i >= images.length) {
+        i = 0
     }
 }
 
 document.addEventListener("click", (e) => {
     e.preventDefault()
-    placeImage(e.pageX,e.pageY)
+    placeImage(e.pageX, e.pageY)
 })
 
 
