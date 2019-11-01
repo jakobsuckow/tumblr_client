@@ -1,5 +1,5 @@
 const url =
-  "https://api.tumblr.com/v2/blog/jakobsuckow.tumblr.com/posts?api_key=1JQBQQ6JXQ4RELfjxdtg0xcZ6ZQh0hdXXejkaZHYX77YezMcM4";
+  "https://api.tumblr.com/v2/blog/jakobsuckow.tumblr.com/posts?api_key=1JQBQQ6JXQ4RELfjxdtg0xcZ6ZQh0hdXXejkaZHYX77YezMcM4&limit=20";
 
 let images = [];
 fetch(url)
@@ -12,7 +12,12 @@ fetch(url)
   .then(data => {
     // console.log(`inside: ${JSON.stringify(data.response.posts, null, 2)}`)
     data.response.posts.map(entry => {
-      return images.push(entry.photos[0].original_size.url);
+      if (entry.photos[0].original_size.url) {
+        return images.push(entry.photos[0].original_size.url);
+      }
+      else {
+        return false
+      }
     });
   })
   .catch(error => {

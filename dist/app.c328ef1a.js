@@ -118,7 +118,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"app.js":[function(require,module,exports) {
-var url = "https://api.tumblr.com/v2/blog/jakobsuckow.tumblr.com/posts?api_key=1JQBQQ6JXQ4RELfjxdtg0xcZ6ZQh0hdXXejkaZHYX77YezMcM4";
+var url = "https://api.tumblr.com/v2/blog/jakobsuckow.tumblr.com/posts?api_key=1JQBQQ6JXQ4RELfjxdtg0xcZ6ZQh0hdXXejkaZHYX77YezMcM4&limit=20";
 var images = [];
 fetch(url).then(function (response) {
   if (response.ok) {
@@ -129,7 +129,11 @@ fetch(url).then(function (response) {
 }).then(function (data) {
   // console.log(`inside: ${JSON.stringify(data.response.posts, null, 2)}`)
   data.response.posts.map(function (entry) {
-    return images.push(entry.photos[0].original_size.url);
+    if (entry.photos[0].original_size.url) {
+      return images.push(entry.photos[0].original_size.url);
+    } else {
+      return false;
+    }
   });
 }).catch(function (error) {
   console.log("There has been an error: ".concat(error.message));
@@ -183,7 +187,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62499" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64003" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
