@@ -26,4 +26,10 @@ img {
   transform: translate(-50%, -50%) scale(0.5);
 }
 
+@media only screen and (max-width: 640px) {
+  img {
+    width: 100%;
+  }
+}
+
 /*# sourceMappingURL=/main.39afc03c.css.map */
