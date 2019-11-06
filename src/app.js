@@ -2,7 +2,7 @@ const url =
   "https://api.tumblr.com/v2/blog/jakobsuckow.tumblr.com/posts?api_key=1JQBQQ6JXQ4RELfjxdtg0xcZ6ZQh0hdXXejkaZHYX77YezMcM4";
 
 let images = [];
-fetch(url, {mode: 'cors'})
+fetch(url, { mode: 'cors' })
   .then(response => {
     if (response.ok) {
       return response.json();
@@ -28,6 +28,10 @@ const placeImage = (x, y) => {
   img.setAttribute("src", nextImage);
   img.style.left = x + "px";
   img.style.top = y + "px";
+  img.height > img.width
+    ? img.classList.add(`portrait`)
+    : img.classList.add(`landscape`)
+
 
   document.body.appendChild(img);
 
