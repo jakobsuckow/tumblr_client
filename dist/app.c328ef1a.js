@@ -141,6 +141,7 @@ var placeImage = function placeImage(x, y) {
   img.setAttribute("src", nextImage);
   img.style.left = x + "px";
   img.style.top = y + "px";
+  img.height > img.width ? img.classList.add("portrait") : img.classList.add("landscape");
   document.body.appendChild(img);
   i = i + 1;
 
@@ -181,7 +182,11 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
+<<<<<<< HEAD
   var ws = new WebSocket(protocol + '://' + hostname + ':' + "50183" + '/');
+=======
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50389" + '/');
+>>>>>>> dea2dbf7c050f8c98732c84d8fd047f2b058bb8f
 
   ws.onmessage = function (event) {
     checkedAssets = {};

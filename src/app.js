@@ -1,8 +1,14 @@
 const url = "/tumblr"
 
+<<<<<<< HEAD
 let images = []
 fetch(url, { mode: "cors" })
   .then((response) => {
+=======
+let images = [];
+fetch(url, { mode: 'cors' })
+  .then(response => {
+>>>>>>> dea2dbf7c050f8c98732c84d8fd047f2b058bb8f
     if (response.ok) {
       return response.json()
     }
@@ -18,11 +24,23 @@ fetch(url, { mode: "cors" })
 let i = 0
 
 const placeImage = (x, y) => {
+<<<<<<< HEAD
   const nextImage = images[i]
   const img = document.createElement("img")
   img.setAttribute("src", nextImage)
   img.style.left = x + "px"
   img.style.top = y + "px"
+=======
+  const nextImage = images[i];
+  const img = document.createElement("img");
+  img.setAttribute("src", nextImage);
+  img.style.left = x + "px";
+  img.style.top = y + "px";
+  img.height > img.width
+    ? img.classList.add(`portrait`)
+    : img.classList.add(`landscape`)
+
+>>>>>>> dea2dbf7c050f8c98732c84d8fd047f2b058bb8f
 
   document.body.appendChild(img)
 
