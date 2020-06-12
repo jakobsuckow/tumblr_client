@@ -1,4 +1,4 @@
-const url = "/tumblr"
+const url = "https://010101110.netlify.app/.netlify/functions/tumblr"
 
 let images = [];
 fetch(url, { mode: 'cors' })
