@@ -120,8 +120,9 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 })({"app.js":[function(require,module,exports) {
 var url = "https://010101110.netlify.app/.netlify/functions/tumblr";
 var images = [];
+var imagesLength = 0;
 fetch(url, {
-  mode: 'cors'
+  mode: "cors"
 }).then(function (response) {
   if (response.ok) {
     return response.json();
@@ -129,10 +130,16 @@ fetch(url, {
 
   throw new Error("Network Error");
 }).then(function (data) {
-  console.log("inside: ".concat(JSON.stringify(data, null, 2)));
+  data.map(function (subArray) {
+    imagesLength = subArray.length;
+    subArray.map(function (value) {
+      return images.push(value.url);
+    });
+  });
 }).catch(function (error) {
   console.log("There has been an error: ".concat(error.message));
 });
+console.log(imagesLength);
 var i = 0;
 
 var placeImage = function placeImage(x, y) {
@@ -181,7 +188,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50528" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50963" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
