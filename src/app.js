@@ -1,15 +1,21 @@
 const url = "https://010101110.netlify.app/.netlify/functions/tumblr"
 
-let images = [];
-fetch(url, { mode: 'cors' })
-  .then(response => {
+let images = []
+fetch(url, { mode: "cors" })
+  .then((response) => {
     if (response.ok) {
       return response.json()
     }
     throw new Error("Network Error")
   })
   .then((data) => {
-    console.log(`inside: ${JSON.stringify(data, null, 2)}`)
+    console.log(JSON.stringify(data, null, 2))
+    data.map((subArray) => {
+      subArray.map((value) => {
+        console.log(value)
+        return images.push(value.url)
+      })
+    })
   })
   .catch((error) => {
     console.log(`There has been an error: ${error.message}`)
