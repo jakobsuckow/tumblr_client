@@ -118,10 +118,10 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"app.js":[function(require,module,exports) {
-var url = "https://api.tumblr.com/v2/blog/jakobsuckow.tumblr.com/posts?api_key=1JQBQQ6JXQ4RELfjxdtg0xcZ6ZQh0hdXXejkaZHYX77YezMcM4";
+var url = "http://localhost:9000/tumblr";
 var images = [];
 fetch(url, {
-  mode: 'cors'
+  mode: "cors"
 }).then(function (response) {
   if (response.ok) {
     return response.json();
@@ -129,14 +129,10 @@ fetch(url, {
 
   throw new Error("Network Error");
 }).then(function (data) {
-  console.log("inside: ".concat(JSON.stringify(data.response.posts, null, 2)));
-  data.response.posts.map(function (entry) {
-    return images.push(entry.photos[0].original_size.url);
-  });
+  console.log("inside: ".concat(JSON.stringify(data, null, 2)));
 }).catch(function (error) {
   console.log("There has been an error: ".concat(error.message));
 });
-console.log("Outisde: ".concat(JSON.stringify(images, null, 2)));
 var i = 0;
 
 var placeImage = function placeImage(x, y) {
@@ -185,7 +181,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57359" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50183" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
