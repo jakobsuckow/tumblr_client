@@ -1,5 +1,12 @@
 const url = "https://010101110.netlify.app/.netlify/functions/tumblr"
 
+function isMobileDevice() {
+  return (
+    typeof window.orientation !== "undefined" ||
+    navigator.userAgent.indexOf("IEMobile") !== -1
+  )
+}
+
 let images = []
 let imagesLength = 0
 fetch(url, { mode: "cors" })
@@ -28,41 +35,17 @@ const placeImage = (x, y) => {
   const nextImage = images[i].url
   const img = document.createElement("img")
   img.setAttribute("src", nextImage)
-  img.style.left = x + "px"
-  img.style.top = y + "px"
+  if (!isMobileDevice()) {
+    img.style.left = x + "px"
+    img.style.top = y + "px"
+  }
+
   if (images[i].width >= images[i].height) {
     img.className += `landscape`
   } else {
     img.className += `portrait`
   }
 
-  document.body.appendChild(img)
-
-  i = i + 1
-
-  if (i >= images.length) {
-    i = 0
-  }
-}
-
-function isMobileDevice() {
-  return (
-    typeof window.orientation !== "undefined" ||
-    navigator.userAgent.indexOf("IEMobile") !== -1
-  )
-}
-
-alert(isMobileDevice())
-
-const placeImageMobile = () => {
-  const nextImage = images[i].url
-  const img = document.createElement("img")
-  img.setAttribute("src", nextImage)
-  if (images[i].width >= images[i].height) {
-    img.className += `landscape`
-  } else {
-    img.className += `portrait`
-  }
   document.body.appendChild(img)
 
   i = i + 1
@@ -76,12 +59,3 @@ document.addEventListener("click", (e) => {
   e.preventDefault()
   placeImage(e.pageX, e.pageY)
 })
-
-document.addEventListener("touchstart", () => {
-  alert(`touched`)
-})
-
-// document.addEventListener("touchstart", (e) => {
-//   e.preventDefault()
-//   placeImageMobile()
-// })
