@@ -45,6 +45,15 @@ const placeImage = (x, y) => {
   }
 }
 
+function isMobileDevice() {
+  return (
+    typeof window.orientation !== "undefined" ||
+    navigator.userAgent.indexOf("IEMobile") !== -1
+  )
+}
+
+alert(isMobileDevice())
+
 const placeImageMobile = () => {
   const nextImage = images[i].url
   const img = document.createElement("img")
