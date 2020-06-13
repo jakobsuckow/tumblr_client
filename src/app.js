@@ -45,7 +45,34 @@ const placeImage = (x, y) => {
   }
 }
 
+const placeImageMobile = () => {
+  const nextImage = images[i].url
+  const img = document.createElement("img")
+  img.setAttribute("src", nextImage)
+  if (images[i].width >= images[i].height) {
+    img.className += `landscape`
+  } else {
+    img.className += `portrait`
+  }
+  document.body.appendChild(img)
+
+  i = i + 1
+
+  if (i >= images.length) {
+    i = 0
+  }
+}
+
 document.addEventListener("click", (e) => {
   e.preventDefault()
   placeImage(e.pageX, e.pageY)
+})
+
+document.addEventListener("touchstart", () => {
+  console.log(`touched`)
+})
+
+document.addEventListener("touchstart", (e) => {
+  e.preventDefault()
+  placeImageMobile()
 })
