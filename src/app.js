@@ -10,9 +10,8 @@ fetch(url, { mode: "cors" })
     throw new Error("Network Error")
   })
   .then((data) => {
-    console.log(`Data length =${data.length}`)
+    imagesLength = data.length
     data.map((subArray) => {
-      imagesLength = subArray.length
       subArray.map((value) => {
         return images.push(value)
       })
@@ -31,6 +30,11 @@ const placeImage = (x, y) => {
   img.setAttribute("src", nextImage)
   img.style.left = x + "px"
   img.style.top = y + "px"
+  if (images[i].width >= images[i].height) {
+    console.log(`landscape`)
+  } else {
+    console.log(`portrait`)
+  }
 
   document.body.appendChild(img)
 
