@@ -31,9 +31,9 @@ const placeImage = (x, y) => {
   img.style.left = x + "px"
   img.style.top = y + "px"
   if (images[i].width >= images[i].height) {
-    console.log(`landscape`)
+    img.className = `landscape`
   } else {
-    console.log(`portrait`)
+    img.className = `portrait`
   }
 
   document.body.appendChild(img)
