@@ -10,10 +10,11 @@ fetch(url, { mode: "cors" })
     throw new Error("Network Error")
   })
   .then((data) => {
+    console.log(`Data length =${data.length}`)
     data.map((subArray) => {
       imagesLength = subArray.length
       subArray.map((value) => {
-        return images.push(value.url)
+        return images.push(value)
       })
     })
   })
@@ -25,7 +26,7 @@ console.log(imagesLength)
 let i = 0
 
 const placeImage = (x, y) => {
-  const nextImage = images[i]
+  const nextImage = images[i].url
   const img = document.createElement("img")
   img.setAttribute("src", nextImage)
   img.style.left = x + "px"
