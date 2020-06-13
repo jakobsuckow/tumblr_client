@@ -1,36 +1,45 @@
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
-html, body {
-    cursor: crosshair;
+html,
+body {
+  cursor: crosshair;
 }
-
 
 body {
-    overflow: hidden;
-    background: #fc0f03;
+  overflow: hidden;
+  background: #fc0f03;
 }
 
 p {
-    color: #ccc;
+  color: #ccc;
 }
 
 canvas {
-    width: 100%;
-    height: auto;
-
+  width: 100%;
+  height: auto;
 }
 
 img {
-    position: absolute;
-    transform: translate(-50%, -50%) scale(0.5);
+  position: absolute;
+  transform: translate(-50%, -50%) scale(0.5);
 }
 
-
 @media only screen and (max-width: 640px) {
-    img {
-        width: 100%;
-    }
+  img {
+    height: 100vh;
+    width: auto;
+  }
+}
+
+.landscape {
+  width: 100vw;
+  height: auto;
+}
+
+.portrait {
+  height: 100vh;
+  width: auto;
 }
