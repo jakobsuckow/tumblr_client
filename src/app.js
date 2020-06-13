@@ -69,10 +69,10 @@ document.addEventListener("click", (e) => {
 })
 
 document.addEventListener("touchstart", () => {
-  console.log(`touched`)
+  alert(`touched`)
 })
 
-document.addEventListener("touchstart", (e) => {
-  e.preventDefault()
-  placeImageMobile()
-})
+// document.addEventListener("touchstart", (e) => {
+//   e.preventDefault()
+//   placeImageMobile()
+// })
